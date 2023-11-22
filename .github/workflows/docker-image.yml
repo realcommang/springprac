@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build springprac/kakao --file springprac/kakao/Dockerfile --tag realcommang/springprac:$(date +%s)
+      run: docker build kakao --file kakao/Dockerfile --tag realcommang/springprac:$(date +%s)
