@@ -20,14 +20,14 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
 
+    - name: Grant execute permission to Gradle wrapper
+      run: |
+        chmod +x kakao/gradlew
+        
     - name: Build with Gradle
       run: |
         cd kakao
         ./gradlew build
-
-    - name: Grant execute permission to Gradle wrapper
-      run: |
-        chmod +x kakao/gradlew
 
     - name: Archive Gradle artifacts
       uses: actions/upload-artifact@v2
