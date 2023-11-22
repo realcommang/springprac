@@ -21,7 +21,12 @@ jobs:
         java-version: '11'
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: |
+        ./gradlew build
+      # 추가된 스텝: Gradle wrapper에 실행 권한 부여
+    - name: Grant execute permission to Gradle wrapper
+      run: |
+        chmod +x gradlew
 
     - name: Archive Gradle artifacts
       uses: actions/upload-artifact@v2
@@ -31,4 +36,3 @@ jobs:
 
     - name: Build Docker image
       run: docker build kakao --file kakao/Dockerfile --tag realcommang/springprac:$(date +%s)
-
